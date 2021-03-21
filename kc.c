@@ -1,6 +1,5 @@
 #include "_include/stdio.c"
 #include "_include/include/ND_Memory.h"
-//#include "_include/include/NextKernel_Paging.h"
 #include "_include/stdint.h"
 extern uint32_t end; 
 
