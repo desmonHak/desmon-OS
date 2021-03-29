@@ -1,32 +1,31 @@
-#ifndef STDBOOL_H_
-#define STDBOOL_H_
-
-/**
- * stdbool.h
- * Author    - Yaping Xin
- * E-mail    - xinyp at live dot com
- * Date      - February 10, 2014
- * Copyright - You are free to use for any purpose except illegal acts
- * Warrenty  - None: don't blame me if it breaks something
+/*===---- stdbool.h - Standard header for booleans -------------------------===
  *
- * In ISO C99, stdbool.h is a standard header and _Bool is a keyword, but
- * some compilers don't offer these yet. This header file is an 
- * implementation of the stdbool.h header file.
+ * Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+ * See https://llvm.org/LICENSE.txt for license information.
+ * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
  *
+ *===-----------------------------------------------------------------------===
  */
 
-#ifndef _Bool
-typedef unsigned char _Bool;
-#endif /* _Bool */
+#ifndef __STDBOOL_H
+#define __STDBOOL_H
 
-/**
- * Define the Boolean macros only if they are not already defined.
- */
-#ifndef __bool_true_false_are_defined
+/* Don't define bool, true, and false in C++, except as a GNU extension. */
+#ifndef __cplusplus
 #define bool _Bool
-#define false 0 
 #define true 1
-#define __bool_true_false_are_defined 1
-#endif /* __bool_true_false_are_defined */
+#define false 0
+#elif defined(__GNUC__) && !defined(__STRICT_ANSI__)
+/* Define _Bool as a GNU extension. */
+#define _Bool bool
+#if __cplusplus < 201103L
+/* For C++98, define bool, false, true as a GNU extension. */
+#define bool  bool
+#define false false
+#define true  true
+#endif
+#endif
 
-#endif /* STDBOOL_H_ */
+#define __bool_true_false_are_defined 1
+
+#endif /* __STDBOOL_H */
