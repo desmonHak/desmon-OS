@@ -272,10 +272,11 @@ void Phase(int hz)
 	OutputB(0x40, divisor >> 8);
 }
 void Wait(uint8_t ticks){
+    const char *_str = hex(01);
     for(uint32_t eticks = 0; eticks < (ticks*10000)/2; ){
         eticks++;
 
-        const char *str = hex(eticks);
+        const char *str = hex(eticks/60);
         char end='\0';
         int contador = 0;
         while(str[contador] != end) {
@@ -285,9 +286,13 @@ void Wait(uint8_t ticks){
                     columna+=2;
                 }
             } else{
-                vidptr[0] = str[contador];
-                vidptr[0+1] = screen.background+screen.foreground;
-                ultima_direcion = ultima_direcion + 2;
+                if(str =! _str){
+                    print(str);
+                    print(", \n");
+                    _str = str;
+                } else{
+                    _str = hex(eticks/60);
+                }
             }
             
             ++contador;
@@ -477,7 +482,7 @@ char* GetString()
 
 void init(void) {
     clear_screen();
-    Phase(18);
+    Phase(30);
     print(hex(ND_TIMER_TICKS));
     print(hex(ND_TIMER_TICKS));
     print(hex(ND_TIMER_TICKS));
@@ -514,21 +519,20 @@ void init(void) {
     const char *str = "Bienvenidos a desmon OS:\n";
     uint32_t **pointer = kmalloc(sizeof(char));
     
-    pointer = "esto es un puntero reservado en memoria\n";
+    pointer = "esto es un texto esta almacenado en un puntero reservado en memoria\n";
     set_color_next(_stdio.black, _stdio.LightCyan);
     print("[*] kernel cagado\n");
-    Wait(5000);
+    Wait(4000);
     print("modulo principal ejecutadose\n");
-    print(hex(ND_TIMER_TICKS));
-    print(hex(ND_TIMER_TICKS));
+    //print(hex(ND_TIMER_TICKS));
+    print("\n");
     print(str);
     set_color_next(_stdio.black, _stdio.LightGreen);
     print((const char*)pointer);
     //ND_Keyboard_Handler();
     print("func nueva: ");
 
-    print(hex(ND_TIMER_TICKS));
-    print(hex(ND_TIMER_TICKS));
+    //print(hex(ND_TIMER_TICKS));
     //print(GetString());
 
     /*while (true){
