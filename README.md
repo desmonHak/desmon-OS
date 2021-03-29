@@ -1,5 +1,5 @@
 # Desmon-OS  <br>
-este es un Sistema operativo de juguete inclompleto que e estado haciendo <br>
+este es un Sistema operativo de juguete inclompleto que e estado haciendo. <br>
 <br>
 # Comandos necesarios:  <br>
 - ld                    (linkador) <br>
