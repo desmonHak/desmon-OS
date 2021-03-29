@@ -8,7 +8,7 @@ este es un Sistema operativo de juguete inclompleto que e estado haciendo <br>
 - grub-mkrescue         (creaacion de iso) <br>
 - qemu-system-x86_64    (virtualizacion de iso) <br>
 <br>
-El code se compila en una maquina linux de la siguientes caracteristicas: <br>
+El code se compilo en un sistema de la siguientes caracteristicas: <br>
 
 root@desmon<br>
 OS: Arch Linux <br>
