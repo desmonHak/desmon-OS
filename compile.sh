@@ -16,7 +16,7 @@ cp ./kernel ./iso/boot
 cp ./grub.cfg ./iso/boot/grub
 
 echo -e "\ncreando iso: "
-grub-mkrescue --compress=xz --product-name=Desmon -o desmonOS.iso iso #--product-version=0.1.0
+grub-mkrescue --product-name=Desmon -o desmonOS.iso iso #--product-version=0.1.0
 echo -e "\n[*] Os compilado, en la carpeta "$(pwd)
 rm -rf *.o;
 ls -a
