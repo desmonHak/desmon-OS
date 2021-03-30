@@ -7,6 +7,7 @@ este es un Sistema operativo de juguete inclompleto que e estado haciendo. <br>
 - nasm                  (compilador de code assenbler) <br>
 - grub-mkrescue         (creaacion de iso) <br>
 - qemu-system-x86_64    (virtualizacion de iso) <br>
+- mtools <br>
 <br>
 El code se compilo en un sistema de la siguientes caracteristicas: <br>
 
@@ -31,6 +32,7 @@ RAM: 476MiB / 3751MiB<br>
 - NASM version 2.15.05 compiled on Sep 24 2020<br>
 - grub-mkrescue (GRUB) 2.04<br>
 - QEMU emulator version 5.2.0<br>
+- mtools (GNU mtools) 4.0.26<br>
 
 # Compilacion
 sudo sh compile.sh
