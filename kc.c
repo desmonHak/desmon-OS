@@ -186,19 +186,11 @@ void IDT_Install(){
 }
 
 char* hex(uint8_t number){
-    uint8_t arr[2] = {number/16, number%16};
-    uint8_t lettersAbstraction[16] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-    char *arr1 = "00";
+    uint8_t arr[2] = {(int)number/16, (int)number%16};
     const char *letters = "0123456789ABCDEF";
-    for(uint8_t contador = 0; contador <= 16; contador++){
-        if(arr[0] == lettersAbstraction[contador]){
-            arr1[0] = letters[contador];
-        }
-        if(arr[1] == lettersAbstraction[contador]){
-            arr1[1] = letters[contador];
-        }
-    }
-    return arr1;
+    arr[0] = letters[arr[0]];
+    arr[1] = letters[arr[1]];
+    return arr;
 }
 int inthex(char number[2]){
     uint8_t lettersAbstraction[16] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
